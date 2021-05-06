@@ -57,8 +57,6 @@ def menu_basico():
     else:
         pass
 
-
-
 def menu(): #Função menu
     opcao = int(input("Selecione qual funcção da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n"))
     if opcao == 1:

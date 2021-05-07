@@ -55,11 +55,15 @@ def menu_basico(): #Menu da calculadora básica
     else:
         pass
 
+import time
+
 def retornar_menu(): #Função para retornar ao menu(menu())
     mais_op = int(input("Você deseja realizar mais alguma operação ?\n Sim (1)\n Não (0)\n"))
     if mais_op == 1:
         menu()
     else:
+        print("Obrigado por usar a M4t3m4t1c4.")
+        time.sleep(3)
         exit()
 
 #Funções da Calculadora de Equações

@@ -79,7 +79,7 @@ def menu_eq():
 #Menu principal do programa
 
 def menu(): #Função menu
-    opcao = int(input("Selecione qual funcção da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n"))
+    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n"))
     if opcao == 1:
         print("Você selecionou a calculadora básica.")
         menu_basico()

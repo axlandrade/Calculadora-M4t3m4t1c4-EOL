@@ -1,7 +1,5 @@
 #Funções da Calculadora básica
 
-import ast
-
 def funcao_basica(): #Menu da calculadora básica
     print("Aqui nessa função você pode realizar operações como:\n 1. Soma (a+b)\n 2. Subtração (a-b)\n 3. Multiplicação (a*b)\n 4. Divisão (a/b)\n")
     funcao_bas = eval(input("Digite aqui a sua operação matemática.\n"))

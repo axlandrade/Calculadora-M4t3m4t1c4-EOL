@@ -21,7 +21,10 @@ def expressoes(): #Função expressão
     print(float(expressao))
 
 def menu_basico(): #Menu da calculadora básica
-    menu_bas = int(input("Selecione qual operação você quer utilizar\n 1. Soma\n 2. Subtração\n 3. Multiplicação\n 4. Divisao\n 5. Expressões\n"))
+    menu_bas = int(input("Selecione qual operação você quer utilizar\n 0. Voltar ao menu\n 1. Soma\n 2. Subtração\n 3. Multiplicação\n 4. Divisao\n 5. Expressões\n"))
+    if menu_bas == 0:
+        menu()
+    
     if menu_bas == 1:
         soma()
         retornar_menu()
@@ -71,7 +74,10 @@ def eq_1_grau():
     retornar_menu()
 
 def menu_eq():
-    opcao_eq = int(input("Selecione qual tipo de equação você deseja resolver\n 1. Equação de 1º grau\n"))
+    opcao_eq = int(input("Selecione qual tipo de equação você deseja resolver\n 0. Voltar ao menu\n 1. Equação de 1º grau\n"))
+    if opcao_eq == 0:
+        menu()
+    
     if opcao_eq == 1:
         eq_1_grau()
 

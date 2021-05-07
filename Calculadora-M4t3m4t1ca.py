@@ -1,59 +1,11 @@
 #Funções da Calculadora básica
 
-def soma(): #Função soma
-    soma = eval(input("Digite na forma a + b + ... + n os valores que você quer somar\n"))
-    print(soma)
+import ast
 
-def subtracao(): #Função subtração
-    subtracao = eval(input("Digite na forma a - b - ... - n os valores que você quer subtrair\n"))
-    print(float(subtracao))
-
-def multiplicacao(): #Função multiplicação
-    multiplicacao = eval(input("Digite na forma a * b * ... * n  os valores que você quer subtrair\n"))
-    print(float(multiplicacao))
-
-def divisao(): #Função divisão
-    divisao = eval(input("Digite na forma a/b os valores que você quer dividir\n"))
-    print(float(divisao))
-
-def expressoes(): #Função expressão
-    expressao = eval(input("Digite aqui a expressão que você deseja calcular.\n"))
-    print(float(expressao))
-
-def menu_basico(): #Menu da calculadora básica
-    menu_bas = int(input("Selecione qual operação você quer utilizar\n 0. Voltar ao menu\n 1. Soma\n 2. Subtração\n 3. Multiplicação\n 4. Divisao\n 5. Expressões\n"))
-    if menu_bas == 0:
-        menu()
-    
-    if menu_bas == 1:
-        soma()
-        retornar_menu()
-    else:
-        pass
-
-    if menu_bas == 2:
-        subtracao()
-        retornar_menu()
-    else:
-        pass
-    
-    if menu_bas == 3:
-        multiplicacao()
-        retornar_menu()
-    else:
-        pass
-    
-    if menu_bas == 4:
-        divisao()
-        retornar_menu()
-    else:
-        pass
-
-    if menu_bas == 5:
-        expressoes()
-        retornar_menu()
-    else:
-        pass
+def funcao_basica(): #Menu da calculadora básica
+    print("Aqui nessa função você pode realizar operações como:\n 1. Soma (a+b)\n 2. Subtração (a-b)\n 3. Multiplicação (a*b)\n 4. Divisão (a/b)\n")
+    funcao_bas = eval(input("Digite aqui a sua operação matemática.\n"))
+    print(float(funcao_bas))
 
 import time
 
@@ -90,9 +42,14 @@ def menu_eq():
 
 def menu(): #Função menu
     opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n"))
+    if opcao ==0:
+        print("Obrigado por usar a M4t3m4t1c4.")
+        time.sleep(3)
+        exit()
+    
     if opcao == 1:
         print("Você selecionou a calculadora básica.")
-        menu_basico()
+        funcao_basica()
     else:
         pass
 

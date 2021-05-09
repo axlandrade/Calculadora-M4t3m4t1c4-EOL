@@ -57,7 +57,7 @@ def menu_eq(): #Menu da calculadora de equações
         pass
 
     if opcao_eq == 2:
-        eq_2_grau()
+        eq_x_grau()
     else:
         print("Você não inseriu uma opção válida.")
         menu_eq()

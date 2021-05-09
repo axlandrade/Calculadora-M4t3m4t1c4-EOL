@@ -86,4 +86,4 @@ def menu(): #Função menu
     else:
         print("Você não inseriu uma opção válida.\n")
         menu()
-menu(
+menu()

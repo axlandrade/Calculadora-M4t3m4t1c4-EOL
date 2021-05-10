@@ -8,3 +8,8 @@ Planos futuros envolvem:
 -Adicioar uma calculadora de problemas matemáticos
 -Adicionar uma calculadora de sistemas matemáticos
 Entre diversas outas coisas, entre os planos deste projeto também está incluido desenvolver uma UI, para facilitar o seu uso
+
+Funções disponíveis no momento:
+-Cálculos básicos
+-Calculadora de equações de n grau
+-Calculadora de área de figuras geométricas(Quadrado, Triângulo e Retângulo[aprimoramentos a se fazer])

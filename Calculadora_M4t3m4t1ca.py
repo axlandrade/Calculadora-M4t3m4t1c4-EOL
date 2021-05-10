@@ -1,3 +1,5 @@
+import Areas
+
 #Funções da Calculadora básica
 
 def funcao_basica(): #Menu da calculadora básica
@@ -66,7 +68,7 @@ def menu_eq(): #Menu da calculadora de equações
 #Menu principal do programa
 
 def menu(): #Função menu
-    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n"))
+    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n 3. Calculadora de áreas\n"))
     if opcao ==0:
         print("Obrigado por usar a M4t3m4t1c4.")
         time.sleep(3)
@@ -84,6 +86,13 @@ def menu(): #Função menu
         print("Você selecionou a calculadora de equações")
         menu_eq()
     else:
-        print("Você não inseriu uma opção válida.\n")
-        menu()
+        pass
+    
+    if opcao == 3:
+        print("Você selecionou a calculadora de áreas")
+        Areas.menu_areas()
+    else:
+        print("Você não inseriu uma opção válida.")
+        Areas.menu_areas()
+
 menu()

@@ -7,7 +7,7 @@
 * Resolução de contas simples (soma, subtração, multiplicação e divisão);
 * Resoluções de expressões numéricas (que envolvam mais de uma operação);
 * Resolução de equações de 1º grau, e
-* Resolução de equações de grau maior que 1 (Pretty Print ativo)
+* Resolução de equações de grau maior que 1 **(Pretty Print ativo)**
 
 ## Objetivos futuros:
 

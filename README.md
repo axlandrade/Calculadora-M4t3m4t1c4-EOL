@@ -4,13 +4,13 @@
 
 ## O que está disponível no momento?
 
--Resolução de contas simples (soma, subtração, multiplicação e divisão);
--Resoluções de expressões numéricas (que envolvam mais de uma operação);
--Resolução de equações de 1º grau, e
--Resolução de equações de grau maior que 1 (Pretty Print ativo)
+*Resolução de contas simples (soma, subtração, multiplicação e divisão);
+*Resoluções de expressões numéricas (que envolvam mais de uma operação);
+*Resolução de equações de 1º grau, e
+*Resolução de equações de grau maior que 1 (Pretty Print ativo)
 
 ## Objetivos futuros:
 
--Adicionar uma interface de usuário;
--Adicionar pretty print utilizando Latex;
--Disponibilizar o programa em mais de um idioma.
+*Adicionar uma interface de usuário;
+*Adicionar pretty print utilizando Latex;
+*Disponibilizar o programa em mais de um idioma.

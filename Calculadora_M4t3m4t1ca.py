@@ -1,5 +1,7 @@
 #Funções da Calculadora básica
 
+import math
+
 def funcao_basica(): #Menu da calculadora básica
     print("Aqui nessa função você pode realizar operações como:\n 1. Soma (a+b)\n 2. Subtração (a-b)\n 3. Multiplicação (a*b)\n 4. Divisão (a/b)\n")
     funcao_bas = eval(input("Digite aqui a sua operação matemática.\n"))
@@ -66,6 +68,7 @@ def area_do_quadrado(): # Função para calcular a Área do quadrado
     lado = int(input("Insira o lado do seu quadrado\n"))
     area_quadrado = int(lado**2)
     print("A área do seu quadrado vale:", area_quadrado)
+    retornar_menu()
 
 def area_do_retangulo(): # Função para calcular a Área do retângulo
     base = int(input("Insira o valor da base do retângulo\n"))
@@ -74,39 +77,61 @@ def area_do_retangulo(): # Função para calcular a Área do retângulo
     if base == altura:
         print("Esse retângulo é um quadrado.")
         print("A área do seu quadrado vale:", area_retangulo)
+        retornar_menu()
     else:
         print("A área do seu retângulo vale:", area_retangulo)
         retornar_menu()
     
-
-def area_do_triangulo():
-    opcao_tri = int(input("Seu triângulo é retângulo?\n 1. Sim\n 2. Não\n 3. Sair"))
-    if opcao_tri == 3:
+def area_do_triangulo(): # Função para calcular a área do triângulo
+    opcao_tri = int(input("Seu triângulo é ?\n 0. Sair\n 1. Retângulo\n 2. Equilátero\n 3. Normal\n"))
+    if opcao_tri == 0:
         retornar_menu()
     else:
         pass
-        
+
     if opcao_tri == 1:
-        cateto_a = int(input("Insira o valor de um cateto\n"))
-        cateto_b = int(input("Insira o valor de outro cateto\n"))
-        area_triangulo = cateto_a*cateto_b
-        print("A área do seu triângulo vale:", area_triangulo)
+        cateto_a = int(input("Quanto vale o cateto do seu triângulo?\n"))
+        cateto_b = int(input("Quanto vale o outro cateto ?\n"))
+        area_triangulo = (cateto_a*cateto_b)/2
+        print("A área do seu triângulo retângulo vale:", area_triangulo)
+        retornar_menu()
     else:
         pass
 
-def menu_areas():
-    opcao_a = int(input("Selecione a sua opção:\n 1. Quadrado\n 2. Retângulo\n"))
+    if opcao_tri == 2:
+        lado = int(input("Quanto vale o lado do seu triângulo equilátero?\n"))
+        area_triangulo = (lado**2*sqrt(3))/4
+        print = ("A área do seu triângulo equilátero vale:", area_triangulo)
+        retornar_menu()
+    else:
+        pass
+
+    if opcao_tri == 3:
+        base = int(input("Quanto mede a base do seu triângulo ?\n"))
+        altura = int(input("Quanto mede a altura do seu triâmgulo?\n"))
+        area_triangulo = (base*altura)/2
+        retornar_menu()
+    else:
+        print("Você não inseriu uma opção válida.")
+        area_do_triangulo()
+
+def menu_areas(): # Menu da calculadora de áreas
+    opcao_a = int(input("Selecione a sua opção:\n 1. Quadrado\n 2. Retângulo\n 3. Triângulos\n"))
     if opcao_a == 1:
         area_do_quadrado()
-        retornar_menu()
     else:
         pass
 
     if opcao_a == 2:
         area_do_retangulo()
-        retornar_menu()
     else:
         pass
+
+    if opcao_a == 3:
+        area_do_triangulo()
+    else:
+        print("Você não inseriu uma opção válida.")
+        menu_areas()
 
 #Menu principal do programa
 
@@ -136,6 +161,6 @@ def menu(): #Função menu
         menu_areas()
     else:
         print("Você não inseriu uma opção válida.")
-        menu_areas()
+        menu()
 
 menu()

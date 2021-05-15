@@ -1,4 +1,4 @@
-# O que é a M4t3m4t1ca ?
+# O que é a M4t3m4t1c4 ?
 
 É um projeto que busca criar uma calculadora, não só capaz de poder resolver operações simples, mas também operações complexas, como derivadas, integrais, resolução de equações, e até mesmo resolução de problemas.
 

@@ -98,13 +98,13 @@ def menu_areas():
     opcao_a = int(input("Selecione a sua opção:\n 1. Quadrado\n 2. Retângulo\n"))
     if opcao_a == 1:
         area_do_quadrado()
-        Calculadora_M4t3m4t1ca.retornar_menu()
+        retornar_menu()
     else:
         pass
 
     if opcao_a == 2:
         area_do_retangulo()
-        Calculadora_M4t3m4t1ca.retornar_menu()
+        retornar_menu()
     else:
         pass
 

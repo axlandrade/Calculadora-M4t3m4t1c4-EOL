@@ -92,7 +92,7 @@ def area_do_triangulo(): # Função para calcular a área do triângulo
     if opcao_tri == 1:
         cateto_a = int(input("Quanto vale o cateto do seu triângulo?\n"))
         cateto_b = int(input("Quanto vale o outro cateto ?\n"))
-        area_triangulo = (cateto_a*cateto_b)/2
+        area_triangulo = (cateto_a * cateto_b)/2
         print("A área do seu triângulo retângulo vale:", area_triangulo)
         retornar_menu()
     else:
@@ -100,8 +100,9 @@ def area_do_triangulo(): # Função para calcular a área do triângulo
 
     if opcao_tri == 2:
         lado = int(input("Quanto vale o lado do seu triângulo equilátero?\n"))
-        area_triangulo = (lado**2*sqrt(3))/4
-        print = ("A área do seu triângulo equilátero vale:", area_triangulo)
+        area_triangulo = (lado**2)/4
+        print("A área do seu triângulo equilátero vale:", area_triangulo, end=""),
+        pprint(sqrt(3))
         retornar_menu()
     else:
         pass

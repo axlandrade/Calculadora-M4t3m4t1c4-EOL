@@ -134,10 +134,24 @@ def menu_areas(): # Menu da calculadora de áreas
         print("Você não inseriu uma opção válida.")
         menu_areas()
 
+def menu_calc():
+    opcao_c = int(input("Selecione a sua opção:\n 1. Limite\n"))
+    if opcao_c == 1:
+        x = symbols('x')
+        expr = str(input("Digite aqui a expressão a qual você quer calcular o limite:\n"))
+        x_tende = int(input("Insira o valor de qual x se aproxima (tende):\n"))
+        limite_expr = limit(expr, x, x_tende)
+        pprint(limite_expr)
+        retornar_menu()
+    else:
+        print("Você não inseriu uma opção válida.\n")
+        menu_calc()
+
+
 #Menu principal do programa
 
 def menu(): #Função menu
-    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n 3. Calculadora de áreas\n"))
+    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n 3. Calculadora de áreas\n 4. Cálculo\n"))
     if opcao ==0:
         print("Obrigado por usar a M4t3m4t1c4.")
         time.sleep(3)
@@ -160,6 +174,12 @@ def menu(): #Função menu
     if opcao == 3:
         print("Você selecionou a calculadora de áreas")
         menu_areas()
+    else:
+        pass
+
+    if opcao == 4:
+        print("Você selecionou a opção Cálculo.\n")
+        menu_calc()
     else:
         print("Você não inseriu uma opção válida.")
         menu()

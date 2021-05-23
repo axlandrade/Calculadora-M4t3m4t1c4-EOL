@@ -32,22 +32,33 @@ from sympy import *
 def eq_1_grau(): #Função para resolver equações do 1º grau
     x = symbols('x')
     expr = input("Digite a sua equação na forma 'a*x + b'\n")
-    sol = solve(expr)
+    sol = solveset(expr)
     print("Sua solução é:\n")
-    print(sol)
+    pprint(sol, use_unicode=True)
     retornar_menu()
 
 def eq_x_grau(): #Função para resolver equações de grau maior que 1
     x = symbols('x')
     expr_2 = input("Digite sua equação na forma a*x**n + b*x**(n-1) + ...\n")
-    sol_2 = solve(expr_2)
+    sol_2 = solveset(expr_2)
     init_printing()
     print("Sua solução é:\n")
-    pprint(sol_2)
+    pprint(sol_2, use_unicode=True)
+    print("\n")
+    retornar_menu()
+
+def ineq(): #Função para resolver inequações
+    x = symbols('x')
+    ineq = input("Digite a sua inequação para ser resolvida:\n")
+    sol_ineq = solveset(ineq, x, domain=S.Reals)
+    init_printing(use_latex=True)
+    print("Sua solução é:\n")
+    pprint(sol_ineq, use_unicode=True)
+    print("\n")
     retornar_menu()
 
 def menu_eq(): #Menu da calculadora de equações
-    opcao_eq = int(input("Selecione qual tipo de equação você deseja resolver\n 0. Voltar ao menu\n 1. Equação de 1º grau\n 2. Equação de grau maior que 1\n"))
+    opcao_eq = int(input("Selecione qual tipo de equação você deseja resolver\n 0. Voltar ao menu\n 1. Equação de 1º grau\n 2. Equação de grau maior que 1\n 3. Inequações\n"))
     if opcao_eq == 0:
         menu()
     else:
@@ -60,6 +71,11 @@ def menu_eq(): #Menu da calculadora de equações
 
     if opcao_eq == 2:
         eq_x_grau()
+    else:
+        pass
+
+    if opcao_eq == 3:
+        ineq()
     else:
         print("Você não inseriu uma opção válida.")
         menu_eq()
@@ -139,7 +155,7 @@ def menu_calc():
     if opcao_c == 1:
         x = symbols('x')
         expr = str(input("Digite aqui a expressão a qual você quer calcular o limite:\n"))
-        x_tende = int(input("Insira o valor de qual x se aproxima (tende):\n"))
+        x_tende = str(input("Insira o valor de qual x se aproxima (tende):\n"))
         limite_expr = limit(expr, x, x_tende)
         pprint(limite_expr)
         retornar_menu()
@@ -147,11 +163,10 @@ def menu_calc():
         print("Você não inseriu uma opção válida.\n")
         menu_calc()
 
-
 #Menu principal do programa
 
 def menu(): #Função menu
-    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\n 3. Calculadora de áreas\n 4. Cálculo\n"))
+    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\inequações\n 3. Calculadora de áreas\n 4. Cálculo\n"))
     if opcao ==0:
         print("Obrigado por usar a M4t3m4t1c4.")
         time.sleep(3)

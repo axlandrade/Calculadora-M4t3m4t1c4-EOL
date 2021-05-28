@@ -18,8 +18,9 @@ def retornar_menu(): #Função para retornar ao menu(menu())
         pass
     
     if mais_op == 0:
+        print("Programa criado por Axl Silva de Andrade (UFRRJ-UNESA).")
         print("Obrigado por usar a M4t3m4t1c4.")
-        time.sleep(3)
+        time.sleep(5)
         exit()
     else:
         print("Você não inseriu uma opção válida.")
@@ -150,15 +151,45 @@ def menu_areas(): # Menu da calculadora de áreas
         print("Você não inseriu uma opção válida.")
         menu_areas()
 
-def menu_calc():
-    opcao_c = int(input("Selecione a sua opção:\n 1. Limite\n"))
-    if opcao_c == 1:
-        x = symbols('x')
-        expr = str(input("Digite aqui a expressão a qual você quer calcular o limite:\n"))
-        x_tende = str(input("Insira o valor de qual x se aproxima (tende):\n"))
-        limite_expr = limit(expr, x, x_tende)
-        pprint(limite_expr)
+#Funções da função Cálculo
+
+def lim():
+    x = symbols('x')
+    expr = str(input("Digite aqui a expressão a qual você quer calcular o limite:\n"))
+    x_tende = str(input("Insira o valor de qual x se aproxima (tende):\n"))
+    limite_expr = limit(expr, x, x_tende)
+    init_printing()
+    print("Seu limite vale:\n")
+    pprint(limite_expr, use_unicode=True)
+    print("\n")
+    retornar_menu()
+
+def derivadas():
+    x = symbols('x')
+    expr = str(input("Digite aqui a expressão a qual você quer calcular a derivada:\n"))
+    derivada_expr = diff(expr)
+    init_printing()
+    print("Sua derivada retorna:\n")
+    pprint(derivada_expr, use_unicode=True)
+    print("\n")
+    retornar_menu()
+    
+
+def menu_calc(): #Menu da função Cálculo
+    print("OBS: Para raiz quadrada use a notação sqrt(x) e para seno use sin(x)\n")
+    opcao_c = int(input("Selecione a sua opção:\n 0. Sair\n 1. Limite\n 2. Derivada\n"))
+    if opcao_c == 0:
         retornar_menu()
+    else:
+        pass
+    
+    if opcao_c == 1:
+       lim()
+    else:
+        pass
+    
+    if opcao_c == 2:
+        derivadas()
     else:
         print("Você não inseriu uma opção válida.\n")
         menu_calc()
@@ -168,8 +199,9 @@ def menu_calc():
 def menu(): #Função menu
     opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\inequações\n 3. Calculadora de áreas\n 4. Cálculo\n"))
     if opcao ==0:
+        print("Programa criado por Axl Silva de Andrade (UFRRJ-UNESA).")
         print("Obrigado por usar a M4t3m4t1c4.")
-        time.sleep(3)
+        time.sleep(5)
         exit()
     else:
         pass

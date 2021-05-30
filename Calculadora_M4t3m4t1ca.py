@@ -1,234 +1,89 @@
-#Funções da Calculadora básica
-
-import math
-
-def funcao_basica(): #Menu da calculadora básica
-    print("Aqui nessa função você pode realizar operações como:\n 1. Soma (a+b)\n 2. Subtração (a-b)\n 3. Multiplicação (a*b)\n 4. Divisão (a/b)\n")
-    funcao_bas = eval(input("Digite aqui a sua operação matemática.\n"))
-    print(float(funcao_bas))
-    retornar_menu()
-
-import time
-
-def retornar_menu(): #Função para retornar ao menu(menu())
-    mais_op = int(input("Você deseja realizar mais alguma operação ?\n Sim (1)\n Não (0)\n"))
-    if mais_op == 1:
-        menu()
-    else:
-        pass
-    
-    if mais_op == 0:
-        print("Programa criado por Axl Silva de Andrade (UFRRJ-UNESA).")
-        print("Obrigado por usar a M4t3m4t1c4.")
-        time.sleep(5)
-        exit()
-    else:
-        print("Você não inseriu uma opção válida.")
-        retornar_menu()
-
-#Funções da Calculadora de Equações
-
+import PySimpleGUI as sg
 from sympy import *
+   
+sg.ChangeLookAndFeel('DarkBlue')
 
-def eq_1_grau(): #Função para resolver equações do 1º grau
-    x = symbols('x')
-    expr = input("Digite a sua equação na forma 'a*x + b'\n")
-    sol = solveset(expr)
-    print("Sua solução é:\n")
-    pprint(sol, use_unicode=True)
-    retornar_menu()
+layout = [
+    [sg.Text('Expressão: '), sg.Input(key='expressao', size=(45,1))],
+    [sg.HorizontalSeparator(color='black')],
+    [sg.Button('Expressão Simples', key='simples'), sg.Button('Equação', key='equacao'), sg.Button('Inequação', key='inequacao'), sg.Button('Limite', key='limite'), sg.Button('Derivada', key='derivada'), sg.Button('Integral Ind.', key='integral_ind')],
+    [sg.Output(size=(54,20), key='output')],
+    [sg.Text('Programa desenvolvido por Axl Andrade (UFRRJ-UNESA)')]
+]
 
-def eq_x_grau(): #Função para resolver equações de grau maior que 1
-    x = symbols('x')
-    expr_2 = input("Digite sua equação na forma a*x**n + b*x**(n-1) + ...\n")
-    sol_2 = solveset(expr_2)
-    init_printing()
-    print("Sua solução é:\n")
-    pprint(sol_2, use_unicode=True)
-    print("\n")
-    retornar_menu()
+window = sg.Window('M4t3m4t1ca',layout , resizable=True)
 
-def ineq(): #Função para resolver inequações
-    x = symbols('x')
-    ineq = input("Digite a sua inequação para ser resolvida:\n")
-    sol_ineq = solveset(ineq, x, domain=S.Reals)
-    init_printing(use_latex=True)
-    print("Sua solução é:\n")
-    pprint(sol_ineq, use_unicode=True)
-    print("\n")
-    retornar_menu()
+while True:
+    event, values = window.read()
 
-def menu_eq(): #Menu da calculadora de equações
-    opcao_eq = int(input("Selecione qual tipo de equação você deseja resolver\n 0. Voltar ao menu\n 1. Equação de 1º grau\n 2. Equação de grau maior que 1\n 3. Inequações\n"))
-    if opcao_eq == 0:
-        menu()
-    else:
-        pass
+    if event == sg.WIN_CLOSED:
+        break
     
-    if opcao_eq == 1:
-        eq_1_grau()
-    else:
-        pass
-
-    if opcao_eq == 2:
-        eq_x_grau()
-    else:
-        pass
-
-    if opcao_eq == 3:
-        ineq()
-    else:
-        print("Você não inseriu uma opção válida.")
-        menu_eq()
-
-def area_do_quadrado(): # Função para calcular a Área do quadrado
-    lado = int(input("Insira o lado do seu quadrado\n"))
-    area_quadrado = int(lado**2)
-    print("A área do seu quadrado vale:", area_quadrado)
-    retornar_menu()
-
-def area_do_retangulo(): # Função para calcular a Área do retângulo
-    base = int(input("Insira o valor da base do retângulo\n"))
-    altura = int(input("Insira o valor da altura do retângulo\n"))
-    area_retangulo = base * altura
-    if base == altura:
-        print("Esse retângulo é um quadrado.")
-        print("A área do seu quadrado vale:", area_retangulo)
-        retornar_menu()
-    else:
-        print("A área do seu retângulo vale:", area_retangulo)
-        retornar_menu()
+    if event == 'simples':
+        simples = values['expressao']
+        sol = eval(simples)
+        init_printing()
+        print("Sua solução é:\n")
+        pprint(sol)
+        print("\n")
+        
+    if event == 'equacao':
+        x = symbols('x')
+        equacao = values['expressao']
+        sol = solveset(equacao)
+        init_printing()
+        print("Sua solução é:\n")
+        pprint(sol, wrap_line=False, use_unicode=True)
+        print("\n")
+        
+    if event == 'inequacao':
+        x = symbols('x')
+        inequacao = values['expressao']
+        sol = solveset(inequacao, x, domain=S.Reals)
+        init_printing()
+        print("Sua solução é:\n")
+        pprint(sol)
+        print("\n")
+        
+    if event == 'limite':
+        expr = values['expressao']
+        
+        sg.theme('Topanga')
     
-def area_do_triangulo(): # Função para calcular a área do triângulo
-    opcao_tri = int(input("Seu triângulo é ?\n 0. Sair\n 1. Retângulo\n 2. Equilátero\n 3. Normal\n"))
-    if opcao_tri == 0:
-        retornar_menu()
-    else:
-        pass
-
-    if opcao_tri == 1:
-        cateto_a = int(input("Quanto vale o cateto do seu triângulo?\n"))
-        cateto_b = int(input("Quanto vale o outro cateto ?\n"))
-        area_triangulo = (cateto_a * cateto_b)/2
-        print("A área do seu triângulo retângulo vale:", area_triangulo)
-        retornar_menu()
-    else:
-        pass
-
-    if opcao_tri == 2:
-        lado = int(input("Quanto vale o lado do seu triângulo equilátero?\n"))
-        area_triangulo = (lado**2)/4
-        print("A área do seu triângulo equilátero vale:", area_triangulo, end=""),
-        pprint(sqrt(3))
-        retornar_menu()
-    else:
-        pass
-
-    if opcao_tri == 3:
-        base = int(input("Quanto mede a base do seu triângulo ?\n"))
-        altura = int(input("Quanto mede a altura do seu triâmgulo?\n"))
-        area_triangulo = (base*altura)/2
-        retornar_menu()
-    else:
-        print("Você não inseriu uma opção válida.")
-        area_do_triangulo()
-
-def menu_areas(): # Menu da calculadora de áreas
-    opcao_a = int(input("Selecione a sua opção:\n 1. Quadrado\n 2. Retângulo\n 3. Triângulos\n"))
-    if opcao_a == 1:
-        area_do_quadrado()
-    else:
-        pass
-
-    if opcao_a == 2:
-        area_do_retangulo()
-    else:
-        pass
-
-    if opcao_a == 3:
-        area_do_triangulo()
-    else:
-        print("Você não inseriu uma opção válida.")
-        menu_areas()
-
-#Funções da função Cálculo
-
-def lim():
-    x = symbols('x')
-    expr = str(input("Digite aqui a expressão a qual você quer calcular o limite:\n"))
-    x_tende = str(input("Insira o valor de qual x se aproxima (tende):\n"))
-    limite_expr = limit(expr, x, x_tende)
-    init_printing()
-    print("Seu limite vale:\n")
-    pprint(limite_expr, use_unicode=True)
-    print("\n")
-    retornar_menu()
-
-def derivadas():
-    x = symbols('x')
-    expr = str(input("Digite aqui a expressão a qual você quer calcular a derivada:\n"))
-    derivada_expr = diff(expr)
-    init_printing()
-    print("Sua derivada retorna:\n")
-    pprint(derivada_expr, use_unicode=True)
-    print("\n")
-    retornar_menu()
+        layout = [[sg.Text('Digite aqui o valor para qual x se aproxima')],
+                  [sg.InputText(key='x_tende')],
+                  [sg.Submit(), sg.Cancel()]]
     
-
-def menu_calc(): #Menu da função Cálculo
-    print("OBS: Para raiz quadrada use a notação sqrt(x) e para seno use sin(x)\n")
-    opcao_c = int(input("Selecione a sua opção:\n 0. Sair\n 1. Limite\n 2. Derivada\n"))
-    if opcao_c == 0:
-        retornar_menu()
-    else:
-        pass
+        popupx = sg.Window('De qual valor x se aproxima', layout)
     
-    if opcao_c == 1:
-       lim()
-    else:
-        pass
+        event, values = popupx.read()
+        x_apr = values['x_tende']
+        popupx.close()
+        
+        x = symbols('x')
+        
+        limite_expr = limit(expr, x, x_apr)
+        init_printing()
+        print("Seu limite vale:\n")
+        pprint(limite_expr)
+        print("\n")
     
-    if opcao_c == 2:
-        derivadas()
-    else:
-        print("Você não inseriu uma opção válida.\n")
-        menu_calc()
-
-#Menu principal do programa
-
-def menu(): #Função menu
-    opcao = int(input("Selecione qual função da calculadora você quer utilizar:\n 0. Sair\n 1. Básica\n 2. Calculadora de equações\inequações\n 3. Calculadora de áreas\n 4. Cálculo\n"))
-    if opcao ==0:
-        print("Programa criado por Axl Silva de Andrade (UFRRJ-UNESA).")
-        print("Obrigado por usar a M4t3m4t1c4.")
-        time.sleep(5)
-        exit()
-    else:
-        pass
+    if event == 'derivada':
+        x = symbols('x')
+        expr = values['expressao']
+        derivada_expr = diff(expr)
+        init_printing()
+        print("Sua derivada retorna:\n")
+        pprint(derivada_expr)
+        print("\n")
     
-    if opcao == 1:
-        print("Você selecionou a calculadora básica.")
-        funcao_basica()
-    else:
-        pass
-
-    if opcao == 2:
-        print("Você selecionou a calculadora de equações")
-        menu_eq()
-    else:
-        pass
+    if event == 'integral_ind':
+        x = symbols('x')
+        expr = values['expressao']
+        integral_expr = integrate(expr, x)
+        init_printing()
+        print("Sua integral retorna: ")
+        pprint(integral_expr)
+        print("\n")
     
-    if opcao == 3:
-        print("Você selecionou a calculadora de áreas")
-        menu_areas()
-    else:
-        pass
-
-    if opcao == 4:
-        print("Você selecionou a opção Cálculo.\n")
-        menu_calc()
-    else:
-        print("Você não inseriu uma opção válida.")
-        menu()
-
-menu()
+window.close()

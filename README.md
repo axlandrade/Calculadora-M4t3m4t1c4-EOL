@@ -11,6 +11,9 @@
 
 ## Objetivos futuros:
 
-* Adicionar uma interface de usuário;
 * Adicionar pretty print utilizando Latex;
 * Disponibilizar o programa em mais de um idioma.
+
+### Agradecimentos especiais
+
+Agradeço ao @andreluispy por me instruir e ajudar a construir a interface gráfica

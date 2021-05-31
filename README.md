@@ -16,4 +16,4 @@
 
 ### Agradecimentos especiais
 
-Agradeço ao @andreluispy por me instruir e ajudar a construir a interface gráfica
+Agradeço ao [@andreluispy](https://github.com/andreluispy/) por me instruir e ajudar a construir a interface gráfica

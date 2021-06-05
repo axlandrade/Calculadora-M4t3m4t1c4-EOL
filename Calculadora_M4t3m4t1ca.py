@@ -3,7 +3,7 @@ from sympy import *
    
 sg.ChangeLookAndFeel('DarkBlue')
 
-layout = [
+left_column = [
     [sg.Text('Expressão: '), sg.Input(key='expressao', size=(45,1))],
     [sg.HorizontalSeparator(color='black')],
     [sg.Button('Expressão Simples', key='simples'), sg.Button('Equação', key='equacao'), sg.Button('Inequação', key='inequacao'), sg.Button('Limite', key='limite'), sg.Button('Derivada', key='derivada'), sg.Button('Integral Ind.', key='integral_ind')],

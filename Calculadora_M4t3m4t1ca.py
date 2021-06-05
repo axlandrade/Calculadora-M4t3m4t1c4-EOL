@@ -11,7 +11,14 @@ left_column = [
     [sg.Text('Programa desenvolvido por Axl Andrade (UFRRJ-UNESA)')]
 ]
 
-window = sg.Window('M4t3m4t1ca',layout , resizable=True)
+right_column = [
+    [sg.Button('Área do quadrado', key = 'quadrado')],
+    [sg.Button('Área do triângulo', key = 'triangulo')]
+]
+
+layout = [[sg.Column(left_column, element_justification='c'), sg.VSeparator(), sg.Column(right_column, element_justification='c')]]
+
+window = sg.Window('M4t3m4t1c4', layout, resizable=True)
 
 while True:
     event, values = window.read()
@@ -48,8 +55,6 @@ while True:
     if event == 'limite':
         expr = values['expressao']
         
-        sg.theme('Topanga')
-    
         layout = [[sg.Text('Digite aqui o valor para qual x se aproxima')],
                   [sg.InputText(key='x_tende')],
                   [sg.Submit(), sg.Cancel()]]
@@ -85,5 +90,42 @@ while True:
         print("Sua integral retorna: ")
         pprint(integral_expr)
         print("\n")
+
+    if event == 'quadrado':
+
+        layout = [[sg.Text('Digite o valor do lado do seu quadrado')],
+            [sg.InputText(key = 'lado')],
+            [sg.Submit(), sg.Cancel()]]
+
+        popupq = sg.Window('Área do quadrado', layout)
+
+        event, values = popupq.read()
+
+        lado_q = values['lado']
+        popupq.close()
+
+        area = int(lado_q)**2
+        init_printing()
+        print("Sua área vale:\n", area)
+        print("\n")
+
+    if event == 'triangulo':
+
+        layout = [[sg.Text('Insira aqui a base e a altura do seu triângulo')],
+        [sg.Text('Base:'), sg.InputText(key = 'base')],
+        [sg.Text('Altura'), sg.InputText(key = 'altura')],
+        [sg.Submit(), sg.Cancel()]]
+
+        popupt = sg.Window('Área do triângulo', layout)
+
+        event, values = popupt.read()
+        base_t = values['base']
+        alt_t = values['altura']
+        popupt.close()
+
+        area = (int(base_t) * int(alt_t))/2
+        init_printing()
+        print("Sua área vale:\n", area)
+        print("\n")     
     
 window.close()

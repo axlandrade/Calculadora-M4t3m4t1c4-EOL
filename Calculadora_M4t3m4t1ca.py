@@ -6,14 +6,16 @@ sg.ChangeLookAndFeel('DarkBlue')
 left_column = [
     [sg.Text('Expressão: '), sg.Input(key='expressao', size=(45,1))],
     [sg.HorizontalSeparator(color='black')],
-    [sg.Button('Expressão Simples', key='simples'), sg.Button('Equação', key='equacao'), sg.Button('Inequação', key='inequacao'), sg.Button('Limite', key='limite'), sg.Button('Derivada', key='derivada'), sg.Button('Integral Ind.', key='integral_ind')],
+    [sg.Button('Expressão Simples', key='simples'), sg.Button('Equação', key='equacao'), sg.Button('Inequação', key='inequacao'), sg.Button('Limite', key='limite'), 
+    sg.Button('Derivada', key='derivada'), sg.Button('Integral Ind.', key='integral_ind')],
     [sg.Output(size=(54,20), key='output')],
     [sg.Text('Programa desenvolvido por Axl Andrade (UFRRJ-UNESA)')]
 ]
 
 right_column = [
     [sg.Button('Área do quadrado', key = 'quadrado')],
-    [sg.Button('Área do triângulo', key = 'triangulo')]
+    [sg.Button('Área do triângulo', key = 'triangulo')],
+    [sg.Button('Área do retângulo', key = 'retangulo')]
 ]
 
 layout = [[sg.Column(left_column, element_justification='c'), sg.VSeparator(), sg.Column(right_column, element_justification='c')]]

@@ -17,3 +17,4 @@
 ### Agradecimentos especiais
 
 Agradeço ao [@andreluispy](https://github.com/andreluispy/) por me instruir e ajudar a construir a interface gráfica.
+Créditos ao [Icon8](https://icons8.com) pelos ícones usados no programa.

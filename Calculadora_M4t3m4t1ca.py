@@ -146,7 +146,9 @@ while True:
     if event == 'limpar':
         expressao = values['expressao']
         expressao = ""
+        output = ""
         window.FindElement('expressao').Update(expressao)
+        window.FindElement('output').Update(output)
     
     if event == sg.WIN_CLOSED:
         break

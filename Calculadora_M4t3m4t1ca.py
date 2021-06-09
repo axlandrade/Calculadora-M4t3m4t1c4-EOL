@@ -31,11 +31,15 @@ left_column = [
     sg.Button('Derivada', key='derivada'), sg.Button('Integral Ind.', key='integral_ind')],
     [sg.Output(size=(54,20), key='output')],
     [sg.HorizontalSeparator()],
-    [sg.Button('', image_data = sete, key = '7'), sg.Button('', image_data = oito, key = '8'), sg.Button('', image_data = nove, key = '9'), sg.Button('', image_data = subtrair, key = '-'), sg.Button('',image_data = dividir, key = '/')],
-    [sg.Button('', image_data = quatro, key = '4'), sg.Button('', image_data = cinco, key = '5'), sg.Button('', image_data = seis, key = '6'), sg.Button('', image_data = somar, key = '+'), sg.Button('', image_data = multiplicar, key = '*'),],
-    [sg.Button('', image_data = um, key = '1'), sg.Button('', image_data = dois, key = '2'), sg.Button('', image_data = tres, key = '3'), sg.Button('', image_data = ponto, key = '.'), sg.Button('', image_data = elevar, key = '^'),],
+    [sg.Button('', image_data = sete, key = '7'), sg.Button('', image_data = oito, key = '8'), sg.Button('', image_data = nove, key = '9'), 
+     sg.Button('', image_data = subtrair, key = '-'), sg.Button('',image_data = dividir, key = '/')],
+    [sg.Button('', image_data = quatro, key = '4'), sg.Button('', image_data = cinco, key = '5'), sg.Button('', image_data = seis, key = '6'), 
+     sg.Button('', image_data = somar, key = '+'), sg.Button('', image_data = multiplicar, key = '*'),],
+    [sg.Button('', image_data = um, key = '1'), sg.Button('', image_data = dois, key = '2'), sg.Button('', image_data = tres, key = '3'), 
+     sg.Button('', image_data = ponto, key = '.'), sg.Button('', image_data = elevar, key = '^'),],
     [sg.Button('', image_data = zero, key = '0'), sg.Button('Limpar', key = 'limpar')],
-    [sg.Text("Símbolos: "), sg.Button('', image_data = x, key = 'X'), sg.Button('', image_data = raiz, key = 'raiz'), sg.Button('', image_data = par1, key = '('), sg.Button ('', image_data  = par2, key = ')')],
+    [sg.Text("Símbolos: "), sg.Button('', image_data = x, key = 'X'), sg.Button('', image_data = raiz, key = 'raiz'), sg.Button('', image_data = par1, key = '('), 
+     sg.Button ('', image_data  = par2, key = ')')],
     [sg.Text("Versão: Beta 2.0")],
     [sg.Text('Programa desenvolvido por Axl Andrade (UFRRJ-UNESA)')]
 ]
@@ -43,7 +47,8 @@ left_column = [
 right_column = [
     [sg.Button('Área do quadrado', key = 'quadrado')],
     [sg.Button('Área do triângulo', key = 'triangulo')],
-    [sg.Button('Área do retângulo', key = 'retangulo')]
+    [sg.Button('Área do retângulo', key = 'retangulo')],
+    [sg.Button('Área do Círculo', key = 'circulo')]
 ]
 
 layout = [[sg.Column(left_column, element_justification='c'), sg.VSeparator(), sg.Column(right_column, element_justification='c')]]
@@ -312,6 +317,29 @@ while True:
                 print("\n")
                 break  
         
-        popupr.close()   
+        popupr.close()
+        
+    if event == 'circulo':
+
+        layout = [[sg.Text('Digite o valor do raio do seu círculo')],
+            [sg.InputText(key = 'raio')],
+            [sg.Submit('Confirmar'), sg.Cancel('Cancelar')]]
+
+        popupq = sg.Window('Área do círculo', layout)
+        while True:
+            event, values = popupq.read()
+
+            if event == 'Cancelar' or event == None:
+                break
+            
+            if event == 'Confirmar':
+                raio = values['raio']
+                area = 3.14 * int(raio)**2
+                init_printing()
+                print("Sua área vale:\n", area)
+                print("\n")
+                break
+            
+        popupq.close() 
     
 window.close()

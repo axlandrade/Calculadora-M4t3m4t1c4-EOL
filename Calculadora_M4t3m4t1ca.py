@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 from sympy import *
    
-sg.ChangeLookAndFeel('DarkBlue')
+sg.ChangeLookAndFeel('Black')
 
 elevar = b'iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAGYktHRAD/AP8A/6C9p5MAAAEnSURBVEhL7ZU9SkNBFEaf2lnY+1OqkCqbELILS7fgFtyCrZ2InYUhmwjZQ6wi+IOdot+BO4/hcudhhilS5MBhhnu/meERMtNtacmxvJdv8ndNWfMgT+UgZ/JVRpusI3sMHvYoo4U18mVFPmS0qMZ32bNjY4JAS/r9d238L0+Sxci8Gv/5ud9yJPdM5tSibLJIFE7eSrgygVqUTRaJwsgPeyQP5NJkTo1etAaLRGG8lnAjU4050MuzuUWi8Ivcl4fyy2rInBo9MvmaZJEofCnhTvoeNSDje1jEB+eSv8BY/lgtlxo9Mgur5RbxwQsJM+l7SXowkb7Xs7E3QzX+oE8bW8AF3eMPmtrYgmcbQ05ki4dvJXmpB+EwHq2at4nriMfzXG5pQdf9AYM08KZW7lAwAAAAAElFTkSuQmCC'
 somar = b'iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABmJLR0QA/wD/AP+gvaeTAAAAnklEQVRIie2VUQqDMAxA38ZuoZ9zdxfxBO5IE2wvoB/ikKJJWvoh0gf5StuXltBAISM10AEemCPDAz3QWCRjgiCMEagkUZdBskUriVKe6yym/cGPQDRLVQR7YtbyNCzOQhEl81LyYbNoudMGucyNjiqMae8/92uG+4u8Yc/2aWo4SfQ1HGBlkJIf4EeewffWKqlYh5ZLEDjW4alKCmYWJUF0eN9Bza8AAAAASUVORK5CYII='
@@ -188,7 +188,7 @@ while True:
         sol = solveset(equacao)
         init_printing()
         print("Sua solução é:\n")
-        pprint(sol, wrap_line=False, use_unicode=True)
+        pprint(sol)
         print("\n")
         
     if event == 'inequacao':

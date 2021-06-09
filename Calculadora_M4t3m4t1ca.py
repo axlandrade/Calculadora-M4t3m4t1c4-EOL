@@ -36,6 +36,7 @@ left_column = [
     [sg.Button('', image_data = um, key = '1'), sg.Button('', image_data = dois, key = '2'), sg.Button('', image_data = tres, key = '3'), sg.Button('', image_data = ponto, key = '.'), sg.Button('', image_data = elevar, key = '^'),],
     [sg.Button('', image_data = zero, key = '0'), sg.Button('Limpar', key = 'limpar')],
     [sg.Text("Símbolos: "), sg.Button('', image_data = x, key = 'X'), sg.Button('', image_data = raiz, key = 'raiz'), sg.Button('', image_data = par1, key = '('), sg.Button ('', image_data  = par2, key = ')')],
+    [sg.Text("Versão: Beta 2.0")],
     [sg.Text('Programa desenvolvido por Axl Andrade (UFRRJ-UNESA)')]
 ]
 

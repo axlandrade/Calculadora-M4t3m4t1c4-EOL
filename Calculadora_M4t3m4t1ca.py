@@ -325,7 +325,7 @@ while True:
             [sg.InputText(key = 'raio')],
             [sg.Submit('Confirmar'), sg.Cancel('Cancelar')]]
 
-        popupq = sg.Window('Área do círculo', layout)
+        popupc = sg.Window('Área do círculo', layout)
         while True:
             event, values = popupq.read()
 
@@ -340,6 +340,6 @@ while True:
                 print("\n")
                 break
             
-        popupq.close() 
+        popupc.close() 
     
 window.close()

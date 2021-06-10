@@ -327,7 +327,7 @@ while True:
 
         popupc = sg.Window('Área do círculo', layout)
         while True:
-            event, values = popupq.read()
+            event, values = popupc.read()
 
             if event == 'Cancelar' or event == None:
                 break

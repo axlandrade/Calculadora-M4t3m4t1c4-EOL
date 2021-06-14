@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 from sympy import *
+import pyglet as pg
    
 sg.ChangeLookAndFeel('Black')
 
@@ -57,7 +58,7 @@ window = sg.Window('M4t3m4t1c4', layout, element_padding=(2,2), resizable=True)
 
 while True:
     event, values = window.read()
-    
+
     if event == '7':
         expressao = values['expressao']
         expressao = values['expressao'] + str(7)
@@ -195,6 +196,7 @@ while True:
         init_printing()
         print("Sua solução é:\n")
         pprint(sol)
+        preview(sol, output='pdf')
         print("\n")
         
     if event == 'inequacao':
@@ -204,6 +206,7 @@ while True:
         init_printing()
         print("Sua solução é:\n")
         pprint(sol)
+        preview(sol, output='pdf')
         print("\n")
         
     if event == 'limite':
@@ -225,6 +228,7 @@ while True:
         init_printing()
         print("Seu limite vale:\n")
         pprint(limite_expr)
+        preview(limite_expr, output='pdf')
         print("\n")
     
     if event == 'derivada':
@@ -234,6 +238,7 @@ while True:
         init_printing()
         print("Sua derivada retorna:\n")
         pprint(derivada_expr)
+        preview(derivada_expr, output='pdf')
         print("\n")
     
     if event == 'integral_ind':
@@ -243,7 +248,7 @@ while True:
         init_printing()
         print("Sua integral retorna: ")
         pprint(integral_expr)
-        preview(integral_expr, output='png')
+        preview(integral_expr, output='pdf')
         print("\n")
 
     if event == 'quadrado':
@@ -341,6 +346,6 @@ while True:
                 print("\n")
                 break
             
-        popupc.close() 
-    
+        popupc.close()   
+
 window.close()

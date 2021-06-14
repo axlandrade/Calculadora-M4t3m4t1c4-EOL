@@ -196,7 +196,6 @@ while True:
         init_printing()
         print("Sua solução é:\n")
         pprint(sol)
-        preview(sol, output='pdf')
         print("\n")
         
     if event == 'inequacao':
@@ -206,7 +205,6 @@ while True:
         init_printing()
         print("Sua solução é:\n")
         pprint(sol)
-        preview(sol, output='pdf')
         print("\n")
         
     if event == 'limite':
@@ -228,7 +226,6 @@ while True:
         init_printing()
         print("Seu limite vale:\n")
         pprint(limite_expr)
-        preview(limite_expr, output='pdf')
         print("\n")
     
     if event == 'derivada':
@@ -238,7 +235,6 @@ while True:
         init_printing()
         print("Sua derivada retorna:\n")
         pprint(derivada_expr)
-        preview(derivada_expr, output='pdf')
         print("\n")
     
     if event == 'integral_ind':
@@ -248,7 +244,6 @@ while True:
         init_printing()
         print("Sua integral retorna: ")
         pprint(integral_expr)
-        preview(integral_expr, output='pdf')
         print("\n")
 
     if event == 'quadrado':

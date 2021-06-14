@@ -243,6 +243,7 @@ while True:
         init_printing()
         print("Sua integral retorna: ")
         pprint(integral_expr)
+        preview(integral_expr, output='png')
         print("\n")
 
     if event == 'quadrado':
